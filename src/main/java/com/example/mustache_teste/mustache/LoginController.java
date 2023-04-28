@@ -20,7 +20,7 @@ public class LoginController {
 
         @GetMapping
         public String form() {
-            return "login";
+            return "index";
         }
 
     //    Neste exemplo simples, existe apenas um "caminho feliz" - todos os usuários são autenticados.
@@ -52,4 +52,25 @@ public class LoginController {
                 AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
         handler.onAuthenticationSuccess(request, response, result);
     }
+
+    // @Configuration
+    // @EnableWebSecurity
+    // public class FormLoginSecurityConfig {
+
+    //     @Bean
+    //     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    //         http.authorizeHttpRequests().requestMatchers("/**").hasRole("USER").and().formLogin();
+    //         return http.build();
+    //     }
+
+    //     @Bean
+    //     public UserDetailsService userDetailsService() {
+    //         UserDetails user = User.withDefaultPasswordEncoder()
+    //                 .username("user")
+    //                 .password("password")
+    //                 .roles("USER")
+    //                 .build();
+    //         return new InMemoryUserDetailsManager(user);
+    //     }
+    // }
 }

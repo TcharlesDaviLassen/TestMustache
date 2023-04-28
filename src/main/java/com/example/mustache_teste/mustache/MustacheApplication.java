@@ -15,10 +15,10 @@ public class MustacheApplication  {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
-				.requestMatchers("/","/login", "/error")
+				.requestMatchers("/","/index", "/error")
 				.permitAll().requestMatchers("/**").authenticated()
 				.and().exceptionHandling()
-				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"));
+				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/index"));
 
 		return http.build();
 	}
