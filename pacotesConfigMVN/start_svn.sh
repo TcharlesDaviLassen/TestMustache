@@ -1,0 +1,1 @@
+svnserve -d -r /srv/svn --log-file=/var/log/svnserve.log
